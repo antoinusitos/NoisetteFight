@@ -14,5 +14,5 @@ Time::~Time()
 
 bool Time::ChangeValor(Scene* scene)
 {
-	
+	return false;
 }

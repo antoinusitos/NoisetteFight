@@ -13,5 +13,5 @@ Player2Life::~Player2Life()
 
 bool Player2Life::ChangeValor(Scene* scene)
 {
-	
+	return false;
 }

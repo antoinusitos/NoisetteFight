@@ -16,15 +16,12 @@ int main()
 
 /*Mode* mode = new Fight();
 Scene* currentScene = mode->CreateScene();*/
+
 sf::Window window(sf::VideoMode(0, 0), "My window");
 
 	Player1* p = new Player1();
 	Player2* p2 = new Player2();
 
-	/*while (true)
-	{
-
-	}*/
 
 	while (window.isOpen())
 	{
