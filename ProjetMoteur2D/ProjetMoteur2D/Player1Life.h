@@ -1,7 +1,7 @@
 #pragma once
 #include "Observer.h"
 
-class Player1Life
+class Player1Life : public Observer
 {
 public:
 

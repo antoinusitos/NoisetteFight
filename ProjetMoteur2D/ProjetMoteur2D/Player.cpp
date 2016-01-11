@@ -13,6 +13,7 @@ void Player::TakeDamage(int amount)
 	if (currentState != State::isGuarding && currentState != State::isDead)
 	{
 		life -= amount;
+		std::cout << life << std::endl;
 		if (life <= 0)
 		{
 			currentState = State::isDead;
@@ -25,12 +26,11 @@ void Player::Attack()
 	
 }
 
-
 int Player::GetPlayerID()
 {
-	
 	return playerID;
 }
+
 
 Player::~Player()
 {

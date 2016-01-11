@@ -1,5 +1,4 @@
 #pragma once
-#include "Observer.h"
 
 #include "InputHandler.h"
 
@@ -22,10 +21,10 @@ public:
 
 	void TakeDamage(int amount);
 	void Attack();
+	int GetPlayerID();
 
 	InputHandler* currentInputHandler;
 
-	int GetPlayerID();
 	State GetCurrentState();
 
 	int playerID;
