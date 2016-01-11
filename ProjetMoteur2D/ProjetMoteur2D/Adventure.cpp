@@ -9,3 +9,8 @@ Adventure::~Adventure()
 {
 	
 }
+
+Scene* Adventure::CreateScene()
+{
+	return;
+}

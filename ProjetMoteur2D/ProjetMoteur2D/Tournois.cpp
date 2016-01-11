@@ -9,3 +9,9 @@ Tournois::~Tournois()
 {
 	
 }
+
+
+Scene* Tournois::CreateScene()
+{
+	return;
+}
