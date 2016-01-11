@@ -1,9 +1,11 @@
 #pragma once
+#include "Scene.h"
 
 class Observer
 {
 public:
-	virtual void Notify();
+
+	virtual bool ChangeValor(Scene* scene);
 
 	Observer();
 	~Observer();

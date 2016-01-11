@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "InputHandler.h"
 
 InputHandler::InputHandler()

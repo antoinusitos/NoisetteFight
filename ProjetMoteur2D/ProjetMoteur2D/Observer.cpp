@@ -1,11 +1,7 @@
+#include "stdafx.h"
 #include "Observer.h"
 
 Observer::Observer()
-{
-	
-}
-
-virtual void Observer::Notify()
 {
 	
 }

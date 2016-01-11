@@ -10,6 +10,7 @@ int main()
 {
 	Mode* mode = new Fight();
 	Scene* currentScene = mode->CreateScene();
+
     return 0;
 }
 
