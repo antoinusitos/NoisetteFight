@@ -1,6 +1,8 @@
 #pragma once
 
-class Player1
+#include "Player.h"
+
+class Player1 : public Player
 {
 public:
 	Player1();

@@ -10,3 +10,8 @@ Backward::~Backward()
 {
 	
 }
+
+void Backward::Execute(Player* thePlayer)
+{
+	std::cout << thePlayer->GetPlayerID() << "Je recule !" << std::endl;
+}

@@ -10,3 +10,8 @@ Guard::~Guard()
 {
 	
 }
+
+void Guard::Execute(Player* thePlayer)
+{
+	std::cout << thePlayer->GetPlayerID() << "Je block !" << std::endl;
+}

@@ -8,7 +8,7 @@
 class Scene
 {
 public:
-	std::vector<Observer*>* Observers;	Scene();
+	Scene();
 	~Scene();
 	void UpdateObservers();
 	

@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene.h"
+#include "Observer.h"
 #include <vector>
 #include "Observer.h"
 #include "Player1.h"
@@ -8,10 +9,15 @@
 class Scene
 {
 public:
-	std::vector<Observer*>* Observers;	Scene();
+<<<<<<< HEAD
+=======
+	std::vector<Observer*>* Observers; 
+>>>>>>> Antoine
+	Scene();
 	~Scene();
 	void UpdateObservers();
 	
+<<<<<<< HEAD
 	std::vector<Observer*>* observers;
 	Player1* player1;
 	Player2* player2;
@@ -21,4 +27,9 @@ public:
 
 	void AddPlayer();
 	int findPosition(Observer* theObserver);
+=======
+	void RegisterObserver(Observer* theObserver);
+	void UnregisterObserver(Observer* theObserver);
+	void NotifyObservers();
+>>>>>>> Antoine
 };

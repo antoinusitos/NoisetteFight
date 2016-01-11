@@ -1,8 +1,12 @@
 #pragma once
 
-class Forward
+#include "Command.h"
+
+class Forward : public Command
 {
 public:
 	Forward();
-	~Forward();	
+	~Forward();
+
+	void Execute(Player* thePlayer);
 };

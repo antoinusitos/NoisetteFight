@@ -2,16 +2,28 @@
 //
 
 #include "stdafx.h"
+<<<<<<< HEAD
+#include "Fight.h"
+#include "Scene.h"
+=======
 #include <Windows.h>
 #include <iostream>
-#include <SFML/Window.hpp>#include "Fight.h"
-#include "Scene.h"
+#include <SFML/Window.hpp>
+
 #include "Player1.h"
 #include "Player2.h"
+>>>>>>> Antoine
 
 
 int main()
 {
+<<<<<<< HEAD
+	Mode* mode = new Fight();
+	Scene* currentScene = mode->CreateScene();
+
+    return 0;
+}
+=======
 	sf::Window window(sf::VideoMode(0, 0), "My window");
 
 	Player1* p = new Player1();
@@ -21,6 +33,7 @@ int main()
 	{
 
 	}*/
+>>>>>>> Antoine
 
 	while (window.isOpen())
 	{
@@ -46,9 +59,7 @@ int main()
 
 	}
 
-	/*Mode* mode = new Fight();
-	Scene* currentScene = mode->CreateScene();*/
-
 	//system("pause");
+
     return 0;
 }

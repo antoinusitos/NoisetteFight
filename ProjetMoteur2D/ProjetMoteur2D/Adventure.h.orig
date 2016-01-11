@@ -1,7 +1,13 @@
 #pragma once
 #include "Mode.h"
 
-class Adventure : public Mode{
+<<<<<<< HEAD
+=======
+#include "Mode.h"
+
+>>>>>>> Antoine
+class Adventure : public Mode
+{
 public:
 	virtual Scene* CreateScene();
 	Adventure();

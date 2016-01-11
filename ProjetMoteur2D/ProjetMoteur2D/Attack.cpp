@@ -10,3 +10,9 @@ Attack::~Attack()
 {
 	
 }
+
+
+void Attack::Execute(Player* thePlayer)
+{
+	std::cout << thePlayer->GetPlayerID() << "Je tape !" << std::endl;
+}
