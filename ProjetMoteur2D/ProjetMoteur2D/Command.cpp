@@ -9,3 +9,8 @@ Command::~Command()
 {
 	
 }
+
+virtual void Command::Execute(Player thePlayer)
+{
+	
+}

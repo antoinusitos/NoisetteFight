@@ -3,6 +3,8 @@
 class Sequence
 {
 public:
+	int degat;
+
 	Sequence();
 	~Sequence();	
 };

@@ -9,3 +9,8 @@ InputHandler::~InputHandler()
 {
 	
 }
+
+void InputHandler::HandleInput()
+{
+	
+}

@@ -5,6 +5,11 @@ Observer::Observer()
 	
 }
 
+virtual void Observer::Notify()
+{
+	
+}
+
 Observer::~Observer()
 {
 	
