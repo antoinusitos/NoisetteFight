@@ -6,11 +6,6 @@ Observer::Observer()
 	
 }
 
-void Observer::Notify()
-{
-	
-}
-
 Observer::~Observer()
 {
 	

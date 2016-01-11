@@ -1,16 +1,24 @@
 #pragma once
 #include "Scene.h"
-#include "Observer.h"
 #include <vector>
+#include "Observer.h"
+#include "Player1.h"
+#include "Player2.h"
 
 class Scene
 {
 public:
-	std::vector<Observer*>* Observers; 
 	Scene();
 	~Scene();
+	void UpdateObservers();
 	
+	std::vector<Observer*>* observers;
+	Player1* player1;
+	Player2* player2;
+
 	void RegisterObserver(Observer* theObserver);
 	void UnregisterObserver(Observer* theObserver);
-	void NotifyObservers();
+
+	void AddPlayer();
+	int findPosition(Observer* theObserver);
 };

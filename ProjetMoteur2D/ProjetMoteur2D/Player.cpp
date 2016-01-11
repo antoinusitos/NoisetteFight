@@ -24,12 +24,6 @@ void Player::TakeDamage(int amount)
 		}
 	}
 }
-
-void Player::Attack()
-{
-	
-}
-
 int Player::GetPlayerID()
 {
 	return playerID;
