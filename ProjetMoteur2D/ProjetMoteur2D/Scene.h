@@ -1,9 +1,9 @@
 #pragma once
-#include "Scene.h"
 #include <vector>
-#include "Observer.h"
 #include "Player1.h"
 #include "Player2.h"
+
+class Observer;
 
 class Scene
 {

@@ -25,7 +25,7 @@ void Player::Attack()
 	
 }
 
-Player::Player()
+
 int Player::GetPlayerID()
 {
 	
@@ -36,6 +36,7 @@ Player::~Player()
 {
 	delete currentInputHandler;
 }
+
 Player::State Player::GetCurrentState()
 {
 	

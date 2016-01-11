@@ -7,13 +7,13 @@
 #include "Crouch.h"
 #include "Guard.h"
 #include <iostream>
-#include <SFML/Window.hpp>
+//#include <SFML/Window.hpp>
 
 InputHandler::InputHandler(Player* thePlayer)
 {
 	currentPlayer = thePlayer;
 
-	if (currentPlayer->GetPlayerID() == 1)
+	/*if (currentPlayer->GetPlayerID() == 1)
 	{
 		jumpKey = sf::Keyboard::Z;
 		attackKey = sf::Keyboard::T;
@@ -39,7 +39,7 @@ InputHandler::InputHandler(Player* thePlayer)
 	crouchButton = new Crouch();
 	guardButton = new Guard();
 
-	std::cout << "creation InputHandler " << currentPlayer->GetPlayerID() << std::endl;
+	std::cout << "creation InputHandler " << currentPlayer->GetPlayerID() << std::endl;*/
 }
 
 InputHandler::~InputHandler()

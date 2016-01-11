@@ -4,7 +4,8 @@
 #include "stdafx.h"
 #include <Windows.h>
 #include <iostream>
-#include <SFML/Window.hpp>#include "Fight.h"
+//#include <SFML/Window.hpp>
+#include "Fight.h"
 #include "Scene.h"
 #include "Player1.h"
 #include "Player2.h"
@@ -12,15 +13,12 @@
 
 int main()
 {
-	sf::Window window(sf::VideoMode(0, 0), "My window");
+	/*sf::Window window(sf::VideoMode(0, 0), "My window");
 
 	Player1* p = new Player1();
 	Player2* p2 = new Player2();
 
-	/*while (true)
-	{
 
-	}*/
 
 	while (window.isOpen())
 	{
@@ -44,10 +42,10 @@ int main()
 			}
 		}
 
-	}
+	}*/
 
-	/*Mode* mode = new Fight();
-	Scene* currentScene = mode->CreateScene();*/
+	Mode* mode = new Fight();
+	Scene* currentScene = mode->CreateScene();
 
 	//system("pause");
     return 0;
