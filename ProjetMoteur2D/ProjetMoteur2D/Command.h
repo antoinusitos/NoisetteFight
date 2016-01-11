@@ -7,6 +7,6 @@ public:
 	Command();
 	~Command();
 	
-	virtual void Execute(Player thePlayer);
+	virtual void Execute(Player thePlayer) = 0;
 
 };
