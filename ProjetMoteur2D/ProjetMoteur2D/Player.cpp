@@ -39,3 +39,18 @@ Player::State Player::GetCurrentState()
 {
 	return currentState;
 }
+
+void Player::Crouch()
+{
+	currentState = State::isCrouching;
+}
+
+void Player::Jump()
+{
+	currentState = State::isJumping;
+}
+
+void Player::Stand()
+{
+	currentState = State::isStanding;
+}

@@ -29,6 +29,10 @@ public:
 
 	int playerID;
 
+	void Crouch();
+	void Jump();
+	void Stand();
+
 private:
 
 	int damage;

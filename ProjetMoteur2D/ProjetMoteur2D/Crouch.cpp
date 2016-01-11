@@ -13,5 +13,9 @@ Crouch::~Crouch()
 
 void Crouch::Execute(Player* thePlayer)
 {
-	std::cout << "Je m'accroupis !" << std::endl;
+	if (thePlayer->GetCurrentState() != Player::State::isCrouching)
+	{
+		std::cout << "Je m'accroupis !" << std::endl;
+		thePlayer->Crouch();
+	}
 }

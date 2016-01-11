@@ -13,5 +13,9 @@ Jump::~Jump()
 
 void Jump::Execute(Player* thePlayer)
 {
-	std::cout << thePlayer->GetPlayerID() << "Je jump !" << std::endl;
+	if (thePlayer->GetCurrentState() != Player::State::isJumping)
+	{
+		std::cout << "Je jump !" << std::endl;
+		thePlayer->Jump();
+	}
 }
