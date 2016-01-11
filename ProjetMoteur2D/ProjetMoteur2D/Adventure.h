@@ -1,6 +1,8 @@
 #pragma once
 
-class Adventure
+#include "Mode.h"
+
+class Adventure : public Mode
 {
 public:
 	Adventure();

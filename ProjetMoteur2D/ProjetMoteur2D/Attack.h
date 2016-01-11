@@ -1,8 +1,12 @@
 #pragma once
 
-class Attack
+#include "Command.h"
+
+class Attack : public Command
 {
 public:
 	Attack();
 	~Attack();
+
+	void Execute(Player* thePlayer);
 };

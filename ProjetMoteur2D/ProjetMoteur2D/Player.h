@@ -1,16 +1,40 @@
 #pragma once
 
+#include "InputHandler.h"
+
 class Player
 {
 public:
-	int damage;
-	int life;
-	int playerID;
-	int keyAttack;
-	
-	void takeDamage(int life);
-	void attack();
+
+	enum State
+	{
+		isCrouching,
+		isJumping,
+		isDead,
+		isStanding,
+		isGuarding,
+
+	};
 
 	Player();
 	~Player();
+
+	void TakeDamage(int amount);
+	void Attack();
+
+	InputHandler* currentInputHandler;
+
+	int GetPlayerID();
+	State GetCurrentState();
+
+	int playerID;
+
+private:
+
+	int damage;
+	int life;
+	int keyAttack;
+
+	State currentState;
+
 };

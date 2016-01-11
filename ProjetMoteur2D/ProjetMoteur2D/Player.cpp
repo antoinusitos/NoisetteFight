@@ -1,9 +1,28 @@
+#include "stdafx.h"
 #include "Player.h"
 
-
-void Player::TakeDamage(int life)
+Player::Player()
 {
-	
+	currentState = State::isStanding;
+	life = 100;
+	damage = 5;
+}
+
+Player::~Player()
+{
+	delete currentInputHandler;
+}
+
+void Player::TakeDamage(int amount)
+{
+	if (currentState != State::isGuarding && currentState != State::isDead)
+	{
+		life -= amount;
+		if (life <= 0)
+		{
+			currentState = State::isDead;
+		}
+	}
 }
 
 void Player::Attack()
@@ -11,12 +30,12 @@ void Player::Attack()
 	
 }
 
-Player::Player()
+int Player::GetPlayerID()
 {
-	
+	return playerID;
 }
 
-Player::~Player()
+Player::State Player::GetCurrentState()
 {
-	
+	return currentState;
 }

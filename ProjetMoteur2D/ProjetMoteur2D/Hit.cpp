@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Hit.h"
 
 void Hit::Add()

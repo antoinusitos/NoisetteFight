@@ -1,8 +1,12 @@
 #pragma once
 
-class Backward
+#include "Command.h"
+
+class Backward : public Command
 {
 public:
 	Backward();
 	~Backward();
+
+	void Execute(Player* thePlayer);
 };

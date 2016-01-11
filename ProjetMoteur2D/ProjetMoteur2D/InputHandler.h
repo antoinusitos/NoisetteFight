@@ -1,5 +1,9 @@
 #pragma once
-#include "Command.h"
+
+#include <iostream>
+
+class Command;
+class Player;
 
 class InputHandler
 {
@@ -11,8 +15,17 @@ public:
 	Command* crouchButton;
 	Command* guardButton;
 
-	InputHandler();
+	int jumpKey;
+	int attackKey;
+	int forwardKey;
+	int backwardKey;
+	int crouchKey;
+	int guardKey;
+
+	Player* currentPlayer;
+
+	InputHandler(Player* thePlayer);
 	~InputHandler();
 	
-	void HandleInput();
+	void HandleInput(int theKey);
 };

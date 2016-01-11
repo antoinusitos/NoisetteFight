@@ -1,8 +1,9 @@
+#include "stdafx.h"
 #include "Scene.h"
 
 Scene::Scene()
 {
-	observers = new vector<Observer>();
+	Observers = new std::vector<Observer*>();
 }
 
 Scene::~Scene()
@@ -15,12 +16,12 @@ void Scene::NotifyObservers()
 	
 }
 
-void Scene::RegisterObserver(Observer theObserber)
+void Scene::RegisterObserver(Observer* theObserver)
 {
 	
 }
 
-void Scene::UnregisterObserver(Observer theObserber)
+void Scene::UnregisterObserver(Observer* theObserver)
 {
 	
 }
