@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Command.h"
+#include "Sequence.h"
 
-class Attack : public Command
+class Attack : public Sequence
 {
 public:
-	Attack();
+	Attack(Player::State theState);
 	~Attack();
 
 	void Execute(Player* thePlayer);

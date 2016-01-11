@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Command.h"
+#include "Sequence.h"
 
-class Jump : public Command
+class Jump : public Sequence
 {
 public:
-	Jump();
+	Jump(Player::State theState);
 	~Jump();
 
 	void Execute(Player* thePlayer);

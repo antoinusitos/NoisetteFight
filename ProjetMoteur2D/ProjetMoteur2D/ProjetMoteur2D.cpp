@@ -45,5 +45,7 @@ sf::Window window(sf::VideoMode(0, 0), "My window");
 			}
 		}
 
-	}    return 0;
+	}    
+	
+	return 0;
 }

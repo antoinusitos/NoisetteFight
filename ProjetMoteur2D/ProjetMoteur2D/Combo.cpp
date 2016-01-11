@@ -4,6 +4,8 @@
 
 Combo::Combo()
 {
+	combos = new std::vector<Hit*>();
+
 }
 
 

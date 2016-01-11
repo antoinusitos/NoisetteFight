@@ -1,13 +1,26 @@
 #pragma once
+#include "Combo.h"
+#include "Player.h"
 
-class Hit
+class Sequence;
+
+class Hit : public Combo
 {
 public:
-	void Add();
+	void Add(Combo* newChild);
 	void Remove();
-	void GetChildren();
+	Combo* GetChildren();
+	std::vector<Sequence*>* GetSequence();
 
+	void AjouteEtat(Sequence* etat);
+
+	bool CheckSequence(Player* thePlayer);
 
 	Hit();
 	~Hit();
+
+private:
+	Combo* child;
+	//Sequence* theSequence;
+	std::vector<Sequence*>* theSequence;
 };

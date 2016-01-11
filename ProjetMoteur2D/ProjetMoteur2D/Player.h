@@ -1,7 +1,8 @@
 #pragma once
 #include "Observer.h"
-
+#include <vector>
 #include "InputHandler.h"
+#include "Hit.h"
 
 class Player
 {
@@ -14,25 +15,28 @@ public:
 		isDead,
 		isStanding,
 		isGuarding,
-
+		forward,
+		backward
 	};
 
 	Player();
 	~Player();
 
 	void TakeDamage(int amount);
-	void Attack();
 
 	InputHandler* currentInputHandler;
 
 	int GetPlayerID();
 	State GetCurrentState();
+	void SetCurrentState(State theState);
 
 	int playerID;
 
 	void Crouch();
 	void Jump();
 	void Stand();
+
+	virtual void CreateCombos() = 0;
 
 private:
 

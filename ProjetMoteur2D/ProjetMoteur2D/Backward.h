@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Command.h"
+#include "Sequence.h"
 
-class Backward : public Command
+class Backward : public Sequence
 {
 public:
-	Backward();
+	Backward(Player::State theState);
 	~Backward();
 
 	void Execute(Player* thePlayer);

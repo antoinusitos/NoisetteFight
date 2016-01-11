@@ -32,14 +32,18 @@ InputHandler::InputHandler(Player* thePlayer)
 		guardKey = sf::Keyboard::U;
 	}
 
-	jumpButton = new Jump();
-	attackButton = new Attack();
-	forwardButton = new Forward();
-	backwardButton = new Backward();
-	crouchButton = new Crouch();
-	guardButton = new Guard();
+	jumpButton = new Jump(Player::State::isJumping);
+	attackButton = new Attack(Player::State::isStanding);
+	forwardButton = new Forward(Player::State::forward);
+	backwardButton = new Backward(Player::State::backward);
+	crouchButton = new Crouch(Player::State::isCrouching);
+	guardButton = new Guard(Player::State::isGuarding);
 
 	std::cout << "creation InputHandler " << currentPlayer->GetPlayerID() << std::endl;
+
+	inCombo = false;
+
+	orientation = 0;
 }
 
 InputHandler::~InputHandler()
@@ -49,20 +53,25 @@ InputHandler::~InputHandler()
 
 void InputHandler::HandleInput(int theKey)
 {
+	if (inCombo == false)
+	{
+		orientation = 0;
+		currentPlayer->SetCurrentState(Player::State::isStanding);
+		inCombo = true;
+	}
+
 	if (theKey == jumpKey)
 	{
 		jumpButton->Execute(currentPlayer);
 	}
-	else if (theKey == attackKey)
-	{
-		attackButton->Execute(currentPlayer);
-	}
 	else if (theKey == forwardKey)
 	{
+		orientation = 1;
 		forwardButton->Execute(currentPlayer);
 	}
 	else if (theKey == backwardKey)
 	{
+		orientation = -1;
 		backwardButton->Execute(currentPlayer);
 	}
 	else if (theKey == crouchKey)
@@ -71,6 +80,12 @@ void InputHandler::HandleInput(int theKey)
 	}
 	else if (theKey == guardKey)
 	{
+		inCombo = false;
 		guardButton->Execute(currentPlayer);
+	}
+	else if (theKey == attackKey)
+	{
+		inCombo = false;
+		attackButton->Execute(currentPlayer);
 	}
 }

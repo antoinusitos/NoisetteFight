@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Command.h"
+#include "Sequence.h"
 
-class Forward : public Command
+class Forward : public Sequence
 {
 public:
-	Forward();
+	Forward(Player::State theState);
 	~Forward();
 
 	void Execute(Player* thePlayer);

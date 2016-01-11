@@ -29,6 +29,11 @@ int Player::GetPlayerID()
 	return playerID;
 }
 
+void Player::SetCurrentState(State theState)
+{
+	currentState = theState;
+}
+
 Player::State Player::GetCurrentState()
 {
 	return currentState;

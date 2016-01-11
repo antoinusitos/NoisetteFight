@@ -2,18 +2,18 @@
 
 #include <iostream>
 
-class Command;
+class Sequence;
 class Player;
 
 class InputHandler
 {
 public:
-	Command* jumpButton;
-	Command* attackButton;
-	Command* forwardButton;
-	Command* backwardButton;
-	Command* crouchButton;
-	Command* guardButton;
+	Sequence* jumpButton;
+	Sequence* attackButton;
+	Sequence* forwardButton;
+	Sequence* backwardButton;
+	Sequence* crouchButton;
+	Sequence* guardButton;
 
 	int jumpKey;
 	int attackKey;
@@ -21,6 +21,10 @@ public:
 	int backwardKey;
 	int crouchKey;
 	int guardKey;
+
+	int orientation; //-1 backward, 0 stand, 1 forward
+
+	bool inCombo;
 
 	Player* currentPlayer;
 
