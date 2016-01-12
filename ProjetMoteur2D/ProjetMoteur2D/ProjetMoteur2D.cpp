@@ -21,7 +21,7 @@ int main()
 		std::cout << "Choisissez un mode de jeu : " << std::endl;
 		std::cout << "1 - Combat rapide " << std::endl;
 		std::cout << "2 - Tournois " << std::endl;
-		std::cout << "3 - Adventure " << std::endl;
+		std::cout << "3 - Aventure " << std::endl;
 		std::cout << "4 - Quitter " << std::endl;
 		std::cin >> choix;
 		if (choix == 1)

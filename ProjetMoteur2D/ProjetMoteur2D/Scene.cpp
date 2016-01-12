@@ -8,6 +8,7 @@
 Scene::Scene()
 {
 	std::cout << "Bienvenue dans la faille de l'invocateur " << std::endl;
+	
 	observers = new std::vector<Observer*>();
 	system("pause");
 	AddPlayer();
