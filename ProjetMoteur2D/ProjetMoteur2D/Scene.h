@@ -35,6 +35,8 @@ public:
 	float GetTime();
 	void EndGame();
 	void Update();
+	void UpdateGame();
+	void Start();
 
 	void AddPlayer();
 	int findPosition(Observer* theObserver);
@@ -42,4 +44,7 @@ private:
 	float gameTime;
 	float test;
 	bool inGame;
+	bool prepare;
+	float prepareToFight;
+	float prepareToFightPrev;
 };

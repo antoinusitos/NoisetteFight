@@ -39,7 +39,7 @@ InputHandler::InputHandler(Player* thePlayer)
 	crouchButton = new Crouch(Player::State::isCrouching);
 	guardButton = new Guard(Player::State::isGuarding);
 
-	std::cout << "creation InputHandler " << currentPlayer->GetPlayerID() << std::endl;
+	//std::cout << "creation InputHandler " << currentPlayer->GetPlayerID() << std::endl;
 
 	inCombo = false;
 
@@ -48,7 +48,12 @@ InputHandler::InputHandler(Player* thePlayer)
 
 InputHandler::~InputHandler()
 {
-	
+	delete jumpButton;
+	delete attackButton;
+	delete forwardButton;
+	delete backwardButton;
+	delete crouchButton;
+	delete guardButton;
 }
 
 void InputHandler::HandleInput(int theKey)
@@ -56,7 +61,6 @@ void InputHandler::HandleInput(int theKey)
 	if (inCombo == false)
 	{
 		orientation = 0;
-		currentPlayer->SetCurrentState(Player::State::isStanding);
 		inCombo = true;
 	}
 
@@ -83,9 +87,11 @@ void InputHandler::HandleInput(int theKey)
 		inCombo = false;
 		guardButton->Execute(currentPlayer);
 	}
-	else if (theKey == attackKey)
+	else if (theKey == attackKey && currentPlayer->CanHit())
 	{
-		inCombo = false;
+		inCombo = false; 
+		currentPlayer->HasHit();
 		attackButton->Execute(currentPlayer);
+		currentPlayer->SetCurrentState(Player::State::isStanding);
 	}
 }

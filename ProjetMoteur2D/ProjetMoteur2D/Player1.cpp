@@ -11,7 +11,7 @@
 
 Player1::Player1(Scene* scene) : Player::Player()
 {
-	std::cout << "creation Player " << std::endl;
+	//std::cout << "creation Player " << std::endl;
 	playerID = 1;
 
 	currentInputHandler = new InputHandler(this);

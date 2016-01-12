@@ -20,9 +20,11 @@ Scene::Scene()
 	RegisterObserver(p2Life);
 	gameTime = 1000.0f;
 	
-	inGame = true;
-
-	Update();
+	inGame = false;
+	prepare = true;
+	prepareToFight = 4.0f;
+	prepareToFightPrev = prepareToFight;
+	Start();
 }
 
 Scene::~Scene()
@@ -57,6 +59,8 @@ void Scene::EndGame()
 	}
 	else
 		std::cout << "Time Out ! " << std::endl;
+
+	std::cout << "PRESS N TO RESTART " << std::endl;
 }
 
 float Scene::GetTime()
@@ -80,9 +84,9 @@ void Scene::UnregisterObserver(Observer* theObserver)
 	observers->erase(observers->begin()+(findPosition(theObserver)));
 }
 
-void Scene::Update()
+void Scene::Start()
 {
-	sf::Window window(sf::VideoMode(0, 0), "My window");	startTime = 0;
+	startTime = 0;
 	y2k = { 0 };
 	y2k.tm_hour = 0;   y2k.tm_min = 0; y2k.tm_sec = 0;
 	y2k.tm_year = 100; y2k.tm_mon = 0; y2k.tm_mday = 1;
@@ -91,6 +95,16 @@ void Scene::Update()
 	deltatime = 0;
 	newCurrentTime = 0;
 	currentTime = 0;
+	
+	std::cout << "PREPARE TO FIGHT !! " << std::endl;
+	
+
+	Update();
+}
+
+void Scene::Update()
+{
+	sf::Window window(sf::VideoMode(0, 0), "My window");
 	while (window.isOpen())
 	{
 		time(&timer);
@@ -100,17 +114,10 @@ void Scene::Update()
 		currentTime = newCurrentTime;
 
 		gameTime -= deltatime;
-		
-		UpdateObservers();
-		// on inspecte tous les évènements de la fenêtre qui ont été émis depuis la précédente itération
-		//sf::Event event;
 
-		/*test += deltatime;
-		if (test > 1)
-		{
-			player1->TakeDamage(20);
-			test = 0;
-		}*/
+		UpdateObservers();
+
+		UpdateGame();
 
 		// on inspecte tous les évènements de la fenêtre qui ont été émis depuis la précédente itération
 		sf::Event event;
@@ -118,14 +125,51 @@ void Scene::Update()
 		{
 			// évènement "fermeture demandée" : on ferme la fenêtre
 			if (event.type == sf::Event::Closed)
-			window.close();
+				window.close();
 
 			if (sf::Keyboard::isKeyPressed(event.key.code) && inGame)
 			{
 				player1->currentInputHandler->HandleInput(event.key.code);
 				player2->currentInputHandler->HandleInput(event.key.code);
 			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::N) && inGame == false && prepare == false)
+			{
+				system("cls");
+				//std::cout << "restart!" << std::endl;
+				player1->ResetPlayer();
+				player2->ResetPlayer();
+				gameTime = 1000.0f;
+				prepareToFight = 4.0f;
+				prepareToFightPrev = prepareToFight;
+				prepare = true;
+				std::cout << "PREPARE TO FIGHT !! " << std::endl;
+			}
 		}
+	}
+}
+
+void Scene::UpdateGame()
+{
+	if (prepare)
+	{
+		prepareToFight -= deltatime;
+		if (prepareToFight <= prepareToFightPrev - 1.0f)
+		{
+			prepareToFightPrev = prepareToFight;
+			if (prepareToFight <= 0.0f)
+			{
+				std::cout << "FIGHT!" << std::endl;
+				prepare = false;
+				inGame = true;
+			}
+			else
+				std::cout << prepareToFight << std::endl;
+		}
+	}
+	else
+	{
+		player1->Update(deltatime);
+		player2->Update(deltatime);
 	}
 }
 

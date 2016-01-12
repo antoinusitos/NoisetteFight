@@ -37,16 +37,27 @@ public:
 	void Crouch();
 	void Jump();
 	void Stand();
+	void Block();
+
+	void Update(float deltaTime);
+
+	void HasHit();
+	bool CanHit();
 
 	int GetDamage();
 
 	virtual void CreateCombos() = 0;
+
+	void ResetPlayer();
 
 private:
 
 	int damage;
 	int life;
 	int keyAttack;
+
+	float cooldown;
+	float timeToCooldown;
 
 	State currentState;
 
