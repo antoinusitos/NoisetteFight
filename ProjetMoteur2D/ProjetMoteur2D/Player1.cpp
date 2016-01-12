@@ -9,7 +9,7 @@
 
 #include "Scene.h"
 
-Player1::Player1(Scene* scene) : Player::Player()
+Player1::Player1(Scene* scene) : Player::Player(scene)
 {
 	//std::cout << "creation Player " << std::endl;
 	playerID = 1;
@@ -18,7 +18,7 @@ Player1::Player1(Scene* scene) : Player::Player()
 
 	combos = new std::vector<Hit*>();
 
-	theScene = scene;
+	
 
 	CreateCombos();
 
@@ -86,5 +86,5 @@ void Player1::CheckCombo()
 	}
 
 	//std::cout << "send damage" << std::endl;
-	theScene->player2->TakeDamage((int)(GetDamage()*multiply));
+	GetScene()->player2->TakeDamage((int)(GetDamage()*multiply));
 }

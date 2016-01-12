@@ -2,8 +2,6 @@
 
 #include "Player.h"
 
-class Scene;
-
 class Player1 : public Player
 {
 public:
@@ -18,5 +16,5 @@ private:
 	std::vector<Hit*>* combos;
 
 	float multiply;
-	Scene* theScene;
+	
 };

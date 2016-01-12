@@ -1,12 +1,16 @@
 #include "stdafx.h"
 #include "Player.h"
 
-Player::Player()
+#include "Scene.h"
+
+Player::Player(Scene* scene)
 {
 	currentState = State::isStanding;
 	life = 100;
 	damage = 5;
 	timeToCooldown = 0.3f;
+
+	theScene = scene;
 }
 
 Player::~Player()
@@ -14,16 +18,34 @@ Player::~Player()
 
 }
 
+Scene* Player::GetScene()
+{
+	return theScene;
+}
+
 void Player::TakeDamage(int amount)
 {
 	if (currentState != State::isGuarding && currentState != State::isDead)
 	{
-		life -= amount;
-		std::cout << "Player " << playerID << " dispose de " << life << " points de vie !" << std::endl;
-		if (life <= 0)
+		Player* p;
+		if (playerID == 1)
+			p = theScene->player2;
+		else
+			p = theScene->player1;
+
+		if ((p->GetCurrentState() == State::isCrouching && currentState == State::isJumping) || (p->GetCurrentState() == State::isJumping && currentState == State::isCrouching))
 		{
-			//std::cout << "mort" << std::endl;
-			currentState = State::isDead;
+			std::cout << "Player " << playerID << " esquive l'attaque terrible de son adversaire !" << std::endl;
+		}
+		else
+		{
+			life -= amount;
+			std::cout << "Player " << playerID << " dispose de " << life << " points de vie !" << std::endl;
+			if (life <= 0)
+			{
+				//std::cout << "mort" << std::endl;
+				currentState = State::isDead;
+			}
 		}
 	}
 	else if (currentState == State::isGuarding)

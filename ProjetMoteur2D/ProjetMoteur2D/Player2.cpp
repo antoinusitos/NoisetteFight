@@ -8,15 +8,13 @@
 
 #include "Scene.h"
 
-Player2::Player2(Scene* scene) : Player::Player()
+Player2::Player2(Scene* scene) : Player::Player(scene)
 {
 	playerID = 2;
 
 	currentInputHandler = new InputHandler(this);
 
 	combos = new std::vector<Hit*>();
-
-	theScene = scene;
 
 	CreateCombos();
 }
@@ -74,5 +72,5 @@ void Player2::CheckCombo()
 	}
 
 	//std::cout << "send damage" << std::endl;
-	theScene->player1->TakeDamage((int)(GetDamage()*multiply));
+	GetScene()->player1->TakeDamage((int)(GetDamage()*multiply));
 }

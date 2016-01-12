@@ -3,6 +3,8 @@
 #include "InputHandler.h"
 #include "Hit.h"
 
+class Scene;
+
 class Player
 {
 public:
@@ -18,7 +20,7 @@ public:
 		backward
 	};
 
-	Player();
+	Player(Scene* scene);
 	~Player();
 
 	void TakeDamage(int amount);
@@ -38,6 +40,8 @@ public:
 	void Jump();
 	void Stand();
 	void Block();
+
+	Scene* GetScene();
 
 	void Update(float deltaTime);
 
@@ -60,5 +64,6 @@ private:
 	float timeToCooldown;
 
 	State currentState;
+	Scene* theScene;
 
 };
