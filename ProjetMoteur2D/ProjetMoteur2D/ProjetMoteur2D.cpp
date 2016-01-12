@@ -19,11 +19,11 @@ Scene* currentScene = mode->CreateScene();*/
 
 sf::Window window(sf::VideoMode(0, 0), "My window");
 
-	Player1* p = new Player1();
-	Player2* p2 = new Player2();
+//	Player1* p = new Player1();
+	//Player2* p2 = new Player2();
 
 
-	while (window.isOpen())
+	/*while (window.isOpen())
 	{
 		// on inspecte tous les évènements de la fenêtre qui ont été émis depuis la précédente itération
 		sf::Event event;
@@ -45,7 +45,7 @@ sf::Window window(sf::VideoMode(0, 0), "My window");
 			}
 		}
 
-	}    
+	}    */
 	
 	return 0;
 }

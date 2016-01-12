@@ -36,6 +36,8 @@ public:
 	void Jump();
 	void Stand();
 
+	int GetDamage();
+
 	virtual void CreateCombos() = 0;
 
 private:

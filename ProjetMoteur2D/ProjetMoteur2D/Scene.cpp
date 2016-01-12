@@ -19,7 +19,7 @@ void Scene::UpdateObservers()
 
 void Scene::AddPlayer()
 {
-	player1 = new Player1();
+	player1 = new Player1(this);
 	player2 = new Player2();
 }
 

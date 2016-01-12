@@ -6,8 +6,9 @@
 #include "Forward.h"
 #include "Backward.h"
 #include "Crouch.h"
+#include "Scene.h"
 
-Player1::Player1() : Player::Player()
+Player1::Player1(Scene* scene) : Player::Player()
 {
 	std::cout << "creation Player " << std::endl;
 	playerID = 1;
@@ -16,7 +17,10 @@ Player1::Player1() : Player::Player()
 
 	combos = new std::vector<Hit*>();
 
+	theScene = scene;
+
 	CreateCombos();
+
 }
 
 Player1::~Player1()
@@ -57,10 +61,13 @@ void Player1::CheckCombo()
 
 	if (retour == false) //pas de combo trouve
 	{
-
+		multiply = 1.0f;
 	}
 	else
 	{
 		//envoyer les degats
+		multiply = 1.5f;
 	}
+
+	theScene->player2->TakeDamage((int)(GetDamage()*multiply));
 }

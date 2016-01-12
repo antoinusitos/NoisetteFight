@@ -53,3 +53,8 @@ void Player::Stand()
 {
 	currentState = State::isStanding;
 }
+
+int Player::GetDamage()
+{
+	return damage;
+}
