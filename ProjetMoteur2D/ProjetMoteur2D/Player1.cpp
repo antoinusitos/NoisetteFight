@@ -40,10 +40,16 @@ void Player1::CreateCombos()
 	Hit* hit1 = new Hit();
 	Hit* hit2 = new Hit();
 	Hit* hit3 = new Hit();
+	Hit* hit4 = new Hit();
+	Hit* hit5 = new Hit();
+	Hit* hit6 = new Hit();
+	Hit* hit7 = new Hit();
+	Hit* hit8 = new Hit();
 
 	Sequence* j = currentInputHandler->jumpButton;
 	Sequence* c = currentInputHandler->crouchButton;
 	Sequence* f = currentInputHandler->forwardButton;
+	Sequence* b = currentInputHandler->backwardButton;
 
 	hit1->AjouteEtat(j);
 	hit1->AjouteEtat(f);
@@ -56,9 +62,31 @@ void Player1::CreateCombos()
 	hit3->AjouteEtat(f);
 	hit3->SetMultiply(1.5f);
 
+	hit4->AjouteEtat(b);
+	hit4->SetMultiply(1.5f);
+
+	hit5->AjouteEtat(j);
+	hit5->SetMultiply(1.5f);
+
+	hit6->AjouteEtat(c);
+	hit6->SetMultiply(1.5f);
+
+	hit7->AjouteEtat(j);
+	hit7->AjouteEtat(b);
+	hit7->SetMultiply(2.5f);
+
+	hit8->AjouteEtat(c);
+	hit8->AjouteEtat(b);
+	hit8->SetMultiply(2.5f);
+
 	combos->push_back(hit1);
 	combos->push_back(hit2);
 	combos->push_back(hit3);
+	combos->push_back(hit4);
+	combos->push_back(hit5);
+	combos->push_back(hit6);
+	combos->push_back(hit7);
+	combos->push_back(hit8);
 }
 
 void Player1::CheckCombo()

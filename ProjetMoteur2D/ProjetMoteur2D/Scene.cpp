@@ -67,6 +67,7 @@ void Scene::EndGame()
 		std::cout << "Time Out ! " << std::endl;
 
 	std::cout << "PRESS N TO RESTART " << std::endl;
+	std::cout << "PRESS Q TO QUIT " << std::endl;
 }
 
 float Scene::GetTime()
@@ -141,7 +142,6 @@ void Scene::Update()
 			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::N) && inGame == false && prepare == false)
 			{
 				system("cls");
-				//std::cout << "restart!" << std::endl;
 				player1->ResetPlayer();
 				player2->ResetPlayer();
 				gameTime = 1000.0f;
@@ -149,6 +149,10 @@ void Scene::Update()
 				prepareToFightPrev = prepareToFight;
 				prepare = true;
 				std::cout << "PREPARE TO FIGHT !! " << std::endl;
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q) && inGame == false && prepare == false)
+			{
+				exit(0);
 			}
 		}
 	}

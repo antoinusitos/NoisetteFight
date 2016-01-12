@@ -29,6 +29,7 @@ int main()
 			system("cls");
 			Mode* mode = new Fight();
 			Scene* currentScene = mode->CreateScene();
+			choix = 0;
 		}
 		else if (choix == 4)
 		{
