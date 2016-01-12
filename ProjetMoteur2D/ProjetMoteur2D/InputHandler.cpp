@@ -54,6 +54,7 @@ InputHandler::~InputHandler()
 	delete backwardButton;
 	delete crouchButton;
 	delete guardButton;
+	delete currentPlayer;
 }
 
 void InputHandler::HandleInput(int theKey)

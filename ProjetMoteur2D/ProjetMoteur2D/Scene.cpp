@@ -12,10 +12,10 @@ Scene::Scene()
 	system("pause");
 	AddPlayer();
 
-	Time* time_t = new Time();
-	Player1Life* p1Life = new Player1Life();
-	Player2Life* p2Life = new Player2Life();
-	RegisterObserver(time_t);
+	theTime = new Time();
+	p1Life = new Player1Life();
+	p2Life = new Player2Life();
+	RegisterObserver(theTime);
 	RegisterObserver(p1Life);
 	RegisterObserver(p2Life);
 	gameTime = 1000.0f;
@@ -29,7 +29,12 @@ Scene::Scene()
 
 Scene::~Scene()
 {
-	
+	delete(p1Life);
+	delete(p2Life);
+	delete(observers);
+	delete(theTime);
+	delete(player1);
+	delete(player2);
 }
 
 

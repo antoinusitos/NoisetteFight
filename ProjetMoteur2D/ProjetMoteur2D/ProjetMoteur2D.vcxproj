@@ -159,7 +159,6 @@
     <ClInclude Include="Attack.h" />
     <ClInclude Include="Backward.h" />
     <ClInclude Include="Combo.h" />
-    <ClInclude Include="Command.h" />
     <ClInclude Include="Crouch.h" />
     <ClInclude Include="Fight.h" />
     <ClInclude Include="Forward.h" />
@@ -186,7 +185,6 @@
     <ClCompile Include="Attack.cpp" />
     <ClCompile Include="Backward.cpp" />
     <ClCompile Include="Combo.cpp" />
-    <ClCompile Include="Command.cpp" />
     <ClCompile Include="Crouch.cpp" />
     <ClCompile Include="Fight.cpp" />
     <ClCompile Include="Forward.cpp" />

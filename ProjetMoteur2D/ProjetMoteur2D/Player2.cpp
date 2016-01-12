@@ -22,6 +22,7 @@ Player2::Player2(Scene* scene) : Player::Player(scene)
 Player2::~Player2()
 {
 	delete currentInputHandler;
+	delete combos;
 }
 
 void Player2::ResetEtat()

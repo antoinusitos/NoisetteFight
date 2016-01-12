@@ -15,7 +15,8 @@ Player::Player(Scene* scene)
 
 Player::~Player()
 {
-
+	delete currentInputHandler;
+	delete theScene;
 }
 
 Scene* Player::GetScene()

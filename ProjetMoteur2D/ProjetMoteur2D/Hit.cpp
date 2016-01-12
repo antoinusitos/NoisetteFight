@@ -34,6 +34,16 @@ std::vector<Sequence*>* Hit::GetSequence()
 	return theSequence;
 }
 
+void Hit::SetMultiply(float m)
+{
+	multiply = m;
+}
+
+float Hit::GetMultiply()
+{
+	return multiply;
+}
+
 void Hit::AjouteEtat(Sequence* etat)
 {
 	theSequence->push_back(etat);

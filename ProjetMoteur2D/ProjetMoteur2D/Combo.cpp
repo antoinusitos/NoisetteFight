@@ -11,4 +11,5 @@ Combo::Combo()
 
 Combo::~Combo()
 {
+	delete(combos);
 }

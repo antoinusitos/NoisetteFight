@@ -8,6 +8,9 @@
 #include <time.h> 
 
 class Observer;
+class Player1Life;
+class Player2Life;
+class Time;
 
 class Scene
 {
@@ -47,4 +50,7 @@ private:
 	bool prepare;
 	float prepareToFight;
 	float prepareToFightPrev;
+	Player1Life* p1Life;
+	Player2Life* p2Life;
+	Time* theTime;
 };

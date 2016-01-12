@@ -27,6 +27,7 @@ Player1::Player1(Scene* scene) : Player::Player(scene)
 Player1::~Player1()
 {
 	delete currentInputHandler;
+	delete combos;
 }
 
 void Player1::ResetEtat()
@@ -46,12 +47,14 @@ void Player1::CreateCombos()
 
 	hit1->AjouteEtat(j);
 	hit1->AjouteEtat(f);
+	hit1->SetMultiply(2.5f);
 
 	hit2->AjouteEtat(c);
 	hit2->AjouteEtat(f);
+	hit2->SetMultiply(2.5f);
 
 	hit3->AjouteEtat(f);
-
+	hit3->SetMultiply(1.5f);
 
 	combos->push_back(hit1);
 	combos->push_back(hit2);
@@ -62,12 +65,14 @@ void Player1::CheckCombo()
 {
 	bool retour = false;
 	int nbCoups = 0;
+	Hit* theHit = nullptr;
 	for (std::vector<Hit*>::iterator it = combos->begin(); it != combos->end(); ++it)
 	{
 		//recherche dans tous les combos
 		retour = (*it)->CheckSequence(this);
 		if (retour)
 		{
+			theHit = *it;
 			nbCoups = (*it)->GetNumberSequence();
 			break;
 		}
@@ -77,12 +82,13 @@ void Player1::CheckCombo()
 	{
 		multiply = 1.0f;
 	}
+	else if (theHit != nullptr)
+	{
+		multiply = theHit->GetMultiply();
+	}
 	else
 	{
-		if (nbCoups == 1)
-			multiply = 1.5f;
-		else if(nbCoups == 2)
-			multiply = 2.5f;
+		multiply = 1.0f;
 	}
 
 	//std::cout << "send damage" << std::endl;

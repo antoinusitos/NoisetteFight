@@ -16,13 +16,16 @@ public:
 
 	bool CheckSequence(Player* thePlayer);
 
+	void SetMultiply(float m);
+
 	int GetNumberSequence();
+	float GetMultiply();
 
 	Hit();
 	~Hit();
 
 private:
 	Combo* child;
-	//Sequence* theSequence;
 	std::vector<Sequence*>* theSequence;
+	float multiply;
 };
