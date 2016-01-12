@@ -8,16 +8,12 @@ Player::Player()
 	damage = 5;
 }
 
-Player::~Player()
-{
-	delete currentInputHandler;
-}
-
 void Player::TakeDamage(int amount)
 {
 	if (currentState != State::isGuarding && currentState != State::isDead)
 	{
 		life -= amount;
+		std::cout << life << std::endl;
 		if (life <= 0)
 		{
 			currentState = State::isDead;
@@ -32,10 +28,9 @@ int Player::GetPlayerID()
 void Player::SetCurrentState(State theState)
 {
 	currentState = theState;
-}
-
-Player::State Player::GetCurrentState()
+}Player::State Player::GetCurrentState()
 {
+	
 	return currentState;
 }
 

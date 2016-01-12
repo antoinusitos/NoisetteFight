@@ -13,5 +13,8 @@ Player2Life::~Player2Life()
 
 bool Player2Life::ChangeValor(Scene* scene)
 {
-	return false;
+	if (scene->player2->GetCurrentState() == scene->player2->isDead)
+		return false;
+	else
+		return true;
 }
