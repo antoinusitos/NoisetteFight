@@ -49,6 +49,7 @@ void Player2::CheckCombo()
 {
 	bool retour = false;
 	int nbCoups = 0;
+	Hit* theHit = nullptr;
 	for (std::vector<Hit*>::iterator it = combos->begin(); it != combos->end(); ++it)
 	{
 		//recherche dans tous les combos
@@ -64,12 +65,13 @@ void Player2::CheckCombo()
 	{
 		multiply = 1.0f;
 	}
+	else if (theHit != nullptr)
+	{
+		multiply = theHit->GetMultiply();
+	}
 	else
 	{
-		if (nbCoups == 1)
-			multiply = 1.5f;
-		else if (nbCoups == 2)
-			multiply = 2.5f;
+		multiply = 1.0f;
 	}
 
 	//std::cout << "send damage" << std::endl;
