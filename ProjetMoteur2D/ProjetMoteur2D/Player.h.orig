@@ -1,5 +1,10 @@
 #pragma once
+<<<<<<< HEAD
+#include "Observer.h"
 #include <vector>
+=======
+
+>>>>>>> Valentin
 #include "InputHandler.h"
 #include "Hit.h"
 
@@ -22,6 +27,11 @@ public:
 	~Player();
 
 	void TakeDamage(int amount);
+<<<<<<< HEAD
+=======
+	void Attack();
+	int GetPlayerID();
+>>>>>>> Valentin
 
 	InputHandler* currentInputHandler;
 
@@ -29,10 +39,6 @@ public:
 	void SetCurrentState(State theState);
 
 	int playerID;
-
-	int GetPlayerID();
-
-	virtual void CheckCombo() = 0;
 
 	void Crouch();
 	void Jump();

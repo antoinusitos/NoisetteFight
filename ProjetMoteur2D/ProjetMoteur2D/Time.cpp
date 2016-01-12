@@ -15,7 +15,7 @@ Time::~Time()
 
 bool Time::ChangeValor(Scene* scene)
 {
-	time = scene->GetTime();
+	time = (int)scene->GetTime();
 	if (time <= 0)
 	{
 		return false;

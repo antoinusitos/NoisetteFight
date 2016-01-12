@@ -16,6 +16,8 @@ public:
 
 	bool CheckSequence(Player* thePlayer);
 
+	int GetNumberSequence();
+
 	Hit();
 	~Hit();
 

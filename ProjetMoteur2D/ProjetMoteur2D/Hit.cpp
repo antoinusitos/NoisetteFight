@@ -20,12 +20,13 @@ Combo* Hit::GetChildren()
 
 Hit::Hit()
 {
-	
+	theSequence = new std::vector<Sequence*>();
 }
 
 Hit::~Hit()
 {
 	delete child;
+	delete theSequence;
 }
 
 std::vector<Sequence*>* Hit::GetSequence()
@@ -36,6 +37,11 @@ std::vector<Sequence*>* Hit::GetSequence()
 void Hit::AjouteEtat(Sequence* etat)
 {
 	theSequence->push_back(etat);
+}
+
+int Hit::GetNumberSequence()
+{
+	return theSequence->size();
 }
 
 bool Hit::CheckSequence(Player* thePlayer)

@@ -18,13 +18,18 @@ void Attack::Execute(Player* thePlayer)
 	if (thePlayer->GetCurrentState() == Player::State::isCrouching)
 	{
 		std::cout << "accroupis ! " << std::endl;
+		//thePlayer->Crouch();
+		thePlayer->CheckCombo();
 	}
 	else if (thePlayer->GetCurrentState() == Player::State::isJumping)
 	{
 		std::cout << "en l'air ! " << std::endl;
+		//thePlayer->Jump();
+		thePlayer->CheckCombo();
 	}
 	else
 	{
 		std::cout << "debout ! " << std::endl;
+		thePlayer->CheckCombo();
 	}
 }

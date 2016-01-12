@@ -2,6 +2,8 @@
 
 #include "Player.h"
 
+class Scene;
+
 class Player1 : public Player
 {
 public:

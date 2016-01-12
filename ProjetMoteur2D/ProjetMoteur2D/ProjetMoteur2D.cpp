@@ -14,9 +14,6 @@
 
 int main()
 {
-	
-	
-
 	Mode* mode = new Fight();
 	Scene* currentScene = mode->CreateScene();
 

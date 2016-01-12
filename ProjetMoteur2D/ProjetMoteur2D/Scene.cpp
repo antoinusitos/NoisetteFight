@@ -7,7 +7,7 @@
 
 Scene::Scene()
 {
-	std::cout << "yolo " << std::endl;
+	std::cout << "Bienvenue dans la faille de l'invocateur " << std::endl;
 	observers = new std::vector<Observer*>();
 	system("pause");
 	AddPlayer();
@@ -20,7 +20,7 @@ Scene::Scene()
 	RegisterObserver(p2Life);
 	gameTime = 1000.0f;
 	
-	
+	inGame = true;
 
 	Update();
 }
@@ -36,7 +36,7 @@ void Scene::UpdateObservers()
 	for (int i = 0; i < observers->size(); ++i)
 	{
 		bool test = observers->at(i)->ChangeValor(this);
-		if (test == false)
+		if (test == false && inGame)
 		{
 			EndGame();
 			break;
@@ -46,6 +46,7 @@ void Scene::UpdateObservers()
 
 void Scene::EndGame()
 {
+	inGame = false;
 	if (player1->GetCurrentState() == player1->isDead)
 	{
 		std::cout << "Player 2 win ! " << std::endl;
@@ -65,8 +66,8 @@ float Scene::GetTime()
 
 void Scene::AddPlayer()
 {
-	player1 = new Player1();
-	player2 = new Player2();
+	player1 = new Player1(this);
+	player2 = new Player2(this);
 }
 
 void Scene::RegisterObserver(Observer* theObserver)
@@ -95,42 +96,37 @@ void Scene::Update()
 		time(&timer);
 
 		newCurrentTime = difftime(timer, mktime(&y2k)) - startTime;
-		deltatime = newCurrentTime - currentTime;
+		deltatime = (float)(newCurrentTime - currentTime);
 		currentTime = newCurrentTime;
 
 		gameTime -= deltatime;
 		
 		UpdateObservers();
 		// on inspecte tous les évènements de la fenêtre qui ont été émis depuis la précédente itération
-		sf::Event event;
+		//sf::Event event;
 
-		test += deltatime;
+		/*test += deltatime;
 		if (test > 1)
 		{
 			player1->TakeDamage(20);
 			test = 0;
-		}
+		}*/
 
-		/*while (window.isOpen())
-		{
 		// on inspecte tous les évènements de la fenêtre qui ont été émis depuis la précédente itération
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
-		// évènement "fermeture demandée" : on ferme la fenêtre
-		if (event.type == sf::Event::Closed)
-		window.close();
+			// évènement "fermeture demandée" : on ferme la fenêtre
+			if (event.type == sf::Event::Closed)
+			window.close();
 
-		if (sf::Keyboard::isKeyPressed(event.key.code))
-		{
-		p->currentInputHandler->HandleInput(event.key.code);
-		p2->currentInputHandler->HandleInput(event.key.code);
+			if (sf::Keyboard::isKeyPressed(event.key.code) && inGame)
+			{
+				player1->currentInputHandler->HandleInput(event.key.code);
+				player2->currentInputHandler->HandleInput(event.key.code);
+			}
 		}
-		}
-		}*/
-
 	}
-
 }
 
 
@@ -143,6 +139,5 @@ int Scene::findPosition(Observer* theObserver)
 			return i;
 		}
 	}
-
 	return 0;
 }

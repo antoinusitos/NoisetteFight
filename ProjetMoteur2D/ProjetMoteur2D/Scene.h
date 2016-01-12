@@ -21,7 +21,7 @@ public:
 	time_t timer;
 	double startTime;
 	struct tm y2k;
-	double deltatime;
+	float deltatime;
 	double newCurrentTime;
 	double currentTime;
 	
@@ -41,4 +41,5 @@ public:
 private:
 	float gameTime;
 	float test;
+	bool inGame;
 };
